@@ -15,7 +15,7 @@ class CardSwiper extends StatelessWidget {
         itemCount: 10,
         layout: SwiperLayout.STACK,
         itemWidth: size.width * 0.6,
-        itemHeight: size.height * 0.4,
+        itemHeight: size.height * 0.45,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
@@ -29,7 +29,7 @@ class CardSwiper extends StatelessWidget {
               borderRadius: BorderRadius.circular(20),
               child: FadeInImage(
                 placeholder: AssetImage("assets/no-image.jpg"),
-                image: NetworkImage("https://via.placeholder.com/300x400"),
+                image: NetworkImage("https://via.placeholder.com/300x400.jpg"),
                 fit: BoxFit.cover,
               ),
             ),
