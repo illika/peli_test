@@ -27,7 +27,8 @@ class HomePage extends StatelessWidget {
         child: Column(
           children: [
             CardSwiper(movies: moviesProvider.onDisplayMovie),
-            const MovieSlider(),
+            MovieSlider(
+                movies: moviesProvider.onPopularMovie, title: "Poulares"),
           ],
         ),
       ),
