@@ -27,7 +27,8 @@ class MovieSearchDelegate extends SearchDelegate {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container(color: Colors.blue, child: Text("buildResults"));
+    if (query.isEmpty || query.trim().isEmpty) return _contenedorVacio();
+    return _mostrarPeliculas(context);
   }
 
   Widget _contenedorVacio() {
@@ -39,11 +40,15 @@ class MovieSearchDelegate extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty || query.trim().isEmpty) return _contenedorVacio();
+    return _mostrarPeliculas(context);
+  }
 
+  StreamBuilder<List<Movie>> _mostrarPeliculas(BuildContext context) {
     final movieProvider = Provider.of<MoviesProvider>(context, listen: false);
+    movieProvider.getSuggestionsByQuery(query.trim());
 
-    return FutureBuilder(
-      future: movieProvider.searchMovie(query.trim()),
+    return StreamBuilder(
+      stream: movieProvider.listMovies,
       builder: (_, snapshot) {
         if (!snapshot.hasData) return _contenedorVacio();
 

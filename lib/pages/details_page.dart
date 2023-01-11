@@ -84,6 +84,8 @@ class _CustomPosterAndTitle extends StatelessWidget {
                 placeholder: const AssetImage("assets/no-image.jpg"),
                 image: NetworkImage(movie.fullPosterImg),
                 height: 150,
+                width: 110,
+                fit: BoxFit.cover,
               ),
             ),
           ),
