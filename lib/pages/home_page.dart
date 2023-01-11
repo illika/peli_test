@@ -28,7 +28,10 @@ class HomePage extends StatelessWidget {
           children: [
             CardSwiper(movies: moviesProvider.onDisplayMovie),
             MovieSlider(
-                movies: moviesProvider.onPopularMovie, title: "Poulares"),
+              movies: moviesProvider.onPopularMovie,
+              title: "Poulares",
+              onNextPage: () => moviesProvider.getOnPoularMovies(),
+            ),
           ],
         ),
       ),
